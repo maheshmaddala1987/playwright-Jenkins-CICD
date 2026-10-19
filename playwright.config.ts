@@ -14,20 +14,21 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
- // fullyParallel: true,
+  fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
- // forbidOnly: !!process.env.CI,
+  forbidOnly: !!process.env.CI,
   /* Retry on CI only */
- // retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-//  workers: process.env.CI ? 1 : undefined,
+   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   //reporter: 'html',
 
   reporter: [
     ['list'], // Prints clean terminal updates in Jenkins Console Output
-    ['html', { open: 'never' }], // Saves to 'playwright-report/' directory
-    ['junit', { outputFile: 'test-results/results.xml' }] // Saves to 'test-results/' directory
+      ['html'],
+   // ['html', { open: 'never' }], // Saves to 'playwright-report/' directory
+    //['junit', { outputFile: 'test-results/results.xml' }] // Saves to 'test-results/' directory
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -37,8 +38,9 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     //trace: 'on-first-retry',
     headless: true,
-     screenshot: 'only-on-failure', // captures debugging assets automatically
+    screenshot: 'only-on-failure', // captures debugging assets automatically
     trace: 'retain-on-failure',
+    
   },
 
   /* Configure projects for major browsers */
@@ -48,7 +50,7 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
- /*   {
+    {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
@@ -56,7 +58,7 @@ export default defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-    },*/
+    },
 
     /* Test against mobile viewports. */
     // {
