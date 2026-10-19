@@ -1,4 +1,4 @@
-import * as XLSX from 'xlsx';
+/*import * as XLSX from 'xlsx';
 import path from 'path';
 
 export type LoginData = {
@@ -18,4 +18,4 @@ export function readExcel(filePath: string, sheetName: string): LoginData[]{
     const sheet = workbook.Sheets[sheetName];
     const data = XLSX.utils.sheet_to_json<LoginData>(sheet);
     return data;
-}
+}*/

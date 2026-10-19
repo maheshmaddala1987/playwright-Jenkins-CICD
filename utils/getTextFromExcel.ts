@@ -1,4 +1,4 @@
-import * as xlsx from 'xlsx';
+/*import * as xlsx from 'xlsx';
 import path from 'path';
 
 export function readExcelDataa(filePath: string, sheetName?: string): Record<string, unknown>[] {
@@ -15,3 +15,4 @@ export function readExcelDataa(filePath: string, sheetName?: string): Record<str
   const rows: Record<string, unknown>[] = xlsx.utils.sheet_to_json(worksheet);
   return rows;
 }
+*/

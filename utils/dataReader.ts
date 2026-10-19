@@ -1,6 +1,6 @@
 import path from 'path'
 import { readCSV } from '../utils/csvReader';
-import { readExcel } from '../utils/excelReader';
+//import { readExcel } from '../utils/excelReader';
 import fs, { readFileSync } from 'fs';
 
 export function readData(filePath: string, sheetName?: string) {
@@ -15,7 +15,7 @@ export function readData(filePath: string, sheetName?: string) {
 
         case ".xlsx":
             console.log(".. I am reading EXCEL..");
-            return readExcel(filePath, sheetName || 'Sheet1');
+            //return readExcel(filePath, sheetName || 'Sheet1');
 
         case ".json":
             console.log(".. I am reading JSON..");
