@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         nodejs 'Node16'  // Make sure this matches your Jenkins NodeJS installation name
+        sh 'npm install'
     }
 
     stages {
