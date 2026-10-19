@@ -22,7 +22,13 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
 //  workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  //reporter: 'html',
+
+  reporter: [
+    ['list'], // Prints clean terminal updates in Jenkins Console Output
+    ['html', { open: 'never' }], // Saves to 'playwright-report/' directory
+    ['junit', { outputFile: 'test-results/results.xml' }] // Saves to 'test-results/' directory
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -31,6 +37,8 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     //trace: 'on-first-retry',
     headless: true,
+     screenshot: 'only-on-failure', // captures debugging assets automatically
+    trace: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
